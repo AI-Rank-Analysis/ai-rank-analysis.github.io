@@ -620,6 +620,13 @@ img, svg { display: block; max-width: 100%; }
 }
 .cta__inner p { color: var(--text-muted); margin: 0 0 24px; font-size: 17px; }
 /* Waitlist form */
+.hp {
+  position: absolute !important;
+  left: -10000px !important;
+  width: 1px; height: 1px;
+  opacity: 0;
+  pointer-events: none;
+}
 .waitlist {
   max-width: 540px;
   margin: 0 auto;
