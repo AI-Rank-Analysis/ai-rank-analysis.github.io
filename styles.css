@@ -619,31 +619,91 @@ img, svg { display: block; max-width: 100%; }
   margin: 0 0 12px;
 }
 .cta__inner p { color: var(--text-muted); margin: 0 0 24px; font-size: 17px; }
-.cta__form {
-  display: flex;
-  gap: 8px;
-  max-width: 480px;
+/* Waitlist form */
+.waitlist {
+  max-width: 540px;
   margin: 0 auto;
-  flex-wrap: wrap;
-  justify-content: center;
+  text-align: left;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
 }
-.cta__form input {
-  flex: 1 1 240px;
-  min-width: 0;
-  padding: 14px 16px;
+.waitlist__row {
+  display: grid;
+  gap: 14px;
+  grid-template-columns: 1fr;
+}
+@media (min-width: 540px) {
+  .waitlist__row { grid-template-columns: 1fr 1fr; }
+}
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+.field label {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--text-muted);
+}
+.field input,
+.field select {
+  width: 100%;
+  padding: 12px 14px;
   font-size: 15px;
-  border-radius: 12px;
+  border-radius: 10px;
   border: 1px solid var(--border-strong);
   background: #fff;
   color: var(--text);
   font-family: inherit;
   outline: none;
   transition: border-color 0.15s ease, box-shadow 0.15s ease;
+  appearance: none;
+  -webkit-appearance: none;
 }
-.cta__form input:focus {
+.field select {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath fill='none' stroke='%237c5cff' stroke-width='1.8' stroke-linecap='round' stroke-linejoin='round' d='M1 1.5l5 5 5-5'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 14px center;
+  padding-right: 36px;
+}
+.field input:focus,
+.field select:focus {
   border-color: var(--accent);
   box-shadow: 0 0 0 4px rgba(124,92,255,0.18);
 }
+.field--check {
+  flex-direction: row;
+  align-items: flex-start;
+  gap: 10px;
+  margin-top: 2px;
+}
+.field--check input {
+  width: 18px; height: 18px;
+  margin-top: 2px;
+  accent-color: var(--accent);
+  flex: 0 0 auto;
+}
+.field--check label {
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--text-muted);
+  line-height: 1.45;
+}
+.waitlist .btn[disabled] {
+  opacity: 0.7;
+  cursor: not-allowed;
+  transform: none;
+}
+.waitlist__msg {
+  margin: 4px 0 0;
+  font-size: 13px;
+  min-height: 1em;
+  text-align: center;
+  color: var(--text-muted);
+}
+.waitlist__msg--ok { color: var(--success); font-weight: 600; }
+.waitlist__msg--err { color: #c0392b; font-weight: 600; }
 .cta__meta {
   margin-top: 14px;
   font-size: 13px;

@@ -72,8 +72,7 @@
         <a href="#faq">FAQ</a>
       </nav>
       <div class="nav__cta">
-        <a href="#pricing" class="btn btn--ghost">Sign in</a>
-        <a href="#cta" class="btn btn--primary">Start free</a>
+        <a href="#cta" class="btn btn--primary">Join waitlist</a>
       </div>
     </div>
   </header>
@@ -92,10 +91,10 @@
           AI Rank Analysis tracks every mention, citation, and recommendation of your brand across ChatGPT, Perplexity, Gemini, Claude, and Google AI Overviews — so you can win the answer before your competitors do.
         </p>
         <div class="hero__cta">
-          <a href="#cta" class="btn btn--primary btn--lg">Start free trial</a>
+          <a href="#cta" class="btn btn--primary btn--lg">Join the waitlist</a>
           <a href="#how" class="btn btn--secondary btn--lg">See how it works →</a>
         </div>
-        <p class="hero__meta">No credit card required · 14-day free trial · Cancel anytime</p>
+        <p class="hero__meta">Early access opens soon · Founding-customer pricing · No spam</p>
 
         <div class="logos" aria-label="Supported AI search engines">
           <span class="logos__label">Tracking visibility across</span>
@@ -348,7 +347,7 @@
         <div class="section__head">
           <span class="eyebrow eyebrow--center"><span class="dot"></span> Pricing</span>
           <h2>Simple plans. Real coverage.</h2>
-          <p>Start with a free trial. Upgrade when you're ready to track more brands, prompts, and engines.</p>
+          <p>Join the waitlist now and lock in founding-customer pricing for life.</p>
         </div>
 
         <div class="grid pricing">
@@ -363,7 +362,7 @@
               <li>Weekly email reports</li>
               <li>Standard support</li>
             </ul>
-            <a href="#cta" class="btn btn--secondary btn--block">Start free trial</a>
+            <a href="#cta" class="btn btn--secondary btn--block">Join waitlist</a>
           </div>
 
           <div class="plan plan--featured">
@@ -379,7 +378,7 @@
               <li>GEO recommendations</li>
               <li>API access</li>
             </ul>
-            <a href="#cta" class="btn btn--primary btn--block">Start free trial</a>
+            <a href="#cta" class="btn btn--primary btn--block">Join waitlist</a>
           </div>
 
           <div class="plan">
@@ -394,7 +393,7 @@
               <li>Dedicated CSM</li>
               <li>Custom integrations</li>
             </ul>
-            <a href="#cta" class="btn btn--secondary btn--block">Talk to sales</a>
+            <a href="#cta" class="btn btn--secondary btn--block">Join waitlist</a>
           </div>
         </div>
       </div>
@@ -425,8 +424,8 @@
             <p>No. Tracking AI engines doesn't require a tag. Optional crawler analytics use a single line of JS or a server-side log integration.</p>
           </details>
           <details>
-            <summary>Can I trial it before paying?</summary>
-            <p>Yes. Every plan starts with a 14-day free trial. No credit card required. You'll have a complete dashboard before the first day is over.</p>
+            <summary>How do I get access?</summary>
+            <p>We're rolling out access in waves. Join the waitlist with your work email and we'll reach out as soon as your spot opens — usually within a couple of weeks. Waitlist members get founding-customer pricing for life.</p>
           </details>
           <details>
             <summary>How is my data handled?</summary>
@@ -439,17 +438,92 @@
     <section id="cta" class="cta">
       <div class="container">
         <div class="cta__inner">
-          <h2>Stop guessing how AI describes you.</h2>
-          <p>Start tracking your brand across every answer engine in under 15 minutes.</p>
-          <form class="cta__form" onsubmit="event.preventDefault(); this.querySelector('button').textContent='Thanks — check your inbox';">
-            <label class="visually-hidden" for="email">Work email</label>
-            <input id="email" type="email" required placeholder="you@company.com" autocomplete="email" />
-            <button type="submit" class="btn btn--primary btn--lg">Start free trial</button>
+          <h2>Be first to track your brand across AI answers.</h2>
+          <p>We're onboarding new teams in waves. Join the waitlist and we'll reach out the moment a spot opens up.</p>
+
+          <form class="waitlist" id="waitlist-form" novalidate>
+            <div class="waitlist__row">
+              <div class="field">
+                <label for="wl-name">Full name</label>
+                <input id="wl-name" name="name" type="text" required placeholder="Ada Lovelace" autocomplete="name" />
+              </div>
+              <div class="field">
+                <label for="wl-email">Work email</label>
+                <input id="wl-email" name="email" type="email" required placeholder="you@company.com" autocomplete="email" />
+              </div>
+            </div>
+            <div class="waitlist__row">
+              <div class="field">
+                <label for="wl-company">Company</label>
+                <input id="wl-company" name="company" type="text" placeholder="Acme Inc." autocomplete="organization" />
+              </div>
+              <div class="field">
+                <label for="wl-role">Role</label>
+                <select id="wl-role" name="role">
+                  <option value="">Select your role</option>
+                  <option>Founder / CEO</option>
+                  <option>Marketing / SEO</option>
+                  <option>PR / Communications</option>
+                  <option>Product Marketing</option>
+                  <option>Agency / Consultant</option>
+                  <option>Other</option>
+                </select>
+              </div>
+            </div>
+            <div class="field">
+              <label for="wl-website">Website you want to track</label>
+              <input id="wl-website" name="website" type="url" placeholder="https://yourcompany.com" autocomplete="url" />
+            </div>
+            <div class="field field--check">
+              <input id="wl-updates" name="updates" type="checkbox" checked />
+              <label for="wl-updates">Send me product updates and the GEO playbook (no spam, unsubscribe anytime)</label>
+            </div>
+            <button type="submit" class="btn btn--primary btn--lg btn--block">Join the waitlist</button>
+            <p class="waitlist__msg" id="waitlist-msg" role="status" aria-live="polite"></p>
           </form>
-          <p class="cta__meta">14 days free · No credit card · Cancel anytime</p>
+
+          <p class="cta__meta">Founding-customer pricing for life · No credit card required</p>
         </div>
       </div>
     </section>
+
+    <script>
+      (function () {
+        var form = document.getElementById('waitlist-form');
+        if (!form) return;
+        var msg = document.getElementById('waitlist-msg');
+        var key = 'air_waitlist_v1';
+
+        try {
+          if (localStorage.getItem(key)) {
+            msg.textContent = "You're already on the list — we'll be in touch soon.";
+            msg.classList.add('waitlist__msg--ok');
+          }
+        } catch (e) {}
+
+        form.addEventListener('submit', function (e) {
+          e.preventDefault();
+          var data = Object.fromEntries(new FormData(form).entries());
+          if (!data.name || !data.email) {
+            msg.textContent = 'Please fill in your name and work email.';
+            msg.className = 'waitlist__msg waitlist__msg--err';
+            return;
+          }
+          var emailOk = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(data.email);
+          if (!emailOk) {
+            msg.textContent = 'That email looks off — double-check it?';
+            msg.className = 'waitlist__msg waitlist__msg--err';
+            return;
+          }
+          try { localStorage.setItem(key, JSON.stringify({ email: data.email, at: Date.now() })); } catch (e) {}
+          form.reset();
+          msg.textContent = "You're on the list. We'll email " + data.email + " when your spot opens.";
+          msg.className = 'waitlist__msg waitlist__msg--ok';
+          form.querySelector('button[type="submit"]').textContent = 'Added to waitlist ✓';
+          form.querySelector('button[type="submit"]').disabled = true;
+        });
+      })();
+    </script>
   </main>
 
   <footer class="footer">
