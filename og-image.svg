@@ -1,0 +1,36 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" width="1200" height="630">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1200" y2="630" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#fbfbfd"/>
+      <stop offset="1" stop-color="#f1edff"/>
+    </linearGradient>
+    <linearGradient id="mark" x1="0" y1="0" x2="80" y2="80" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#9b7cff"/>
+      <stop offset="1" stop-color="#6a4ae0"/>
+    </linearGradient>
+    <linearGradient id="grad" x1="0" y1="0" x2="900" y2="0" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#7c5cff"/>
+      <stop offset="0.5" stop-color="#b088ff"/>
+      <stop offset="1" stop-color="#6a4ae0"/>
+    </linearGradient>
+  </defs>
+
+  <rect width="1200" height="630" fill="url(#bg)"/>
+
+  <g transform="translate(80, 80)">
+    <rect width="80" height="80" rx="20" fill="url(#mark)"/>
+    <path d="M22 58V40M40 58V28M58 58V46" stroke="white" stroke-width="6.4" stroke-linecap="round"/>
+  </g>
+  <text x="180" y="135" font-family="Inter, system-ui, sans-serif" font-size="34" font-weight="700" fill="#15151a">AI Rank Analysis</text>
+
+  <text x="80" y="280" font-family="Inter, system-ui, sans-serif" font-size="76" font-weight="800" fill="#15151a" letter-spacing="-2">Know how your brand</text>
+  <text x="80" y="370" font-family="Inter, system-ui, sans-serif" font-size="76" font-weight="800" fill="url(#grad)" letter-spacing="-2">shows up in AI answers.</text>
+
+  <text x="80" y="440" font-family="Inter, system-ui, sans-serif" font-size="28" font-weight="500" fill="#5b5b6b">Track mentions, citations &amp; rank across</text>
+  <text x="80" y="478" font-family="Inter, system-ui, sans-serif" font-size="28" font-weight="500" fill="#5b5b6b">ChatGPT · Perplexity · Gemini · Claude · Copilot</text>
+
+  <g transform="translate(80, 540)" font-family="Inter, system-ui, sans-serif" font-size="22" font-weight="600" fill="#6a4ae0">
+    <rect x="0" y="0" width="190" height="44" rx="22" fill="#efeaff" stroke="#e1d6ff"/>
+    <text x="95" y="29" text-anchor="middle">Free 14-day trial</text>
+  </g>
+</svg>
